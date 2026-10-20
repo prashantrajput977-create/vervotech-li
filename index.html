@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Follow Vervotech on LinkedIn</title>
+<meta name="description" content="Travel-tech insights from Vervotech. Follow us on LinkedIn.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B1F44">
+<style>
+  :root{--navy:#0B1F44;--navy2:#132B5C;--yellow:#FFC93C;--ink:#fff;--muted:#B9C3D9}
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(120% 80% at 50% 0%,var(--navy2),var(--navy) 60%);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+  main{width:100%;max-width:380px;text-align:center}
+  .mark{font-weight:800;letter-spacing:-.02em;font-size:28px}
+  .mark span{color:var(--yellow)}
+  h1{font-size:24px;line-height:1.25;margin:28px 0 10px;font-weight:700}
+  p{color:var(--muted);font-size:15px;line-height:1.5}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;margin:28px 0 12px;padding:16px 20px;border-radius:999px;background:var(--yellow);color:var(--navy);font-weight:700;font-size:16px;text-decoration:none;min-height:52px}
+  .btn:active{transform:scale(.98)}
+  .alt{display:inline-block;color:var(--ink);font-size:14px;padding:10px;text-decoration:underline;text-underline-offset:3px}
+  .status{font-size:13px;margin-top:18px;color:var(--muted)}
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-right:6px;animation:p 1s infinite alternate}
+  @keyframes p{to{opacity:.25}}
+  @media (prefers-reduced-motion:reduce){.dot{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">Vervo<span>tech</span></div>
+  <h1>Travel-tech insights, every week</h1>
+  <p>Hotels, distribution and travel trends. Tap below and hit <strong>Follow</strong>.</p>
+  <a id="open" class="btn" href="https://www.linkedin.com/company/vervotech/">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg>
+    Open in LinkedIn app
+  </a>
+  <a id="web" class="alt" href="https://www.linkedin.com/company/vervotech/">Continue on the web</a>
+  <div class="status" id="status"><span class="dot"></span>Opening LinkedIn…</div>
+</main>
+<script>
+(function(){
+  var WEB="https://www.linkedin.com/company/vervotech/";
+  var IOS="linkedin://company/14448402";
+  var ANDROID="intent://www.linkedin.com/company/vervotech/#Intent;scheme=https;package=com.linkedin.android;S.browser_fallback_url="+encodeURIComponent(WEB)+";end";
+  var ua=navigator.userAgent||"";
+  var isAndroid=/Android/i.test(ua);
+  var isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  var app=isAndroid?ANDROID:(isIOS?IOS:WEB);
+  var btn=document.getElementById("open"), st=document.getElementById("status");
+  btn.href=app;
+  if(!isAndroid&&!isIOS){location.replace(WEB);return;}
+  var left=false;
+  document.addEventListener("visibilitychange",function(){if(document.hidden)left=true;});
+  window.addEventListener("pagehide",function(){left=true;});
+  setTimeout(function(){location.href=app;},250);
+  setTimeout(function(){
+    if(!left){st.textContent="Didn't open? Tap the button above.";}
+  },1800);
+  btn.addEventListener("click",function(){
+    setTimeout(function(){if(!document.hidden)location.href=WEB;},2200);
+  });
+})();
+</script>
+</body>
+</html>
