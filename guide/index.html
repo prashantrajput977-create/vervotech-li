@@ -83,6 +83,13 @@ footer img{height:22px;opacity:.8}
 @keyframes rv{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.rv{opacity:1;transform:none}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-84SQGBTRL5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());
+(function(){var q=new URLSearchParams(location.search);var ua=navigator.userAgent||"";
+window.VT={lp:location.pathname,content:q.get('utm_content')||'(none)',os:/Android/i.test(ua)?'android':(/iPhone|iPad|iPod/i.test(ua)?'ios':'other'),ig:/Instagram/i.test(ua)?'yes':'no'};
+gtag('config','G-84SQGBTRL5',{send_page_view:true,transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig});})();
+function vtTrack(n,p){try{var o=Object.assign({transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig},p||{});gtag('event',n,o)}catch(e){}}
+</script>
 </head>
 <body>
 <div class="bg"></div>
@@ -127,13 +134,13 @@ footer img{height:22px;opacity:.8}
   <div class="step locked" id="s2">
    <div class="sh"><span class="num">2</span><h2>Read your free playbook</h2></div>
    <p>All 8 pages open right here. Works on any phone.</p>
-   <a id="read" class="btn" href="read.html">Read the playbook</a>
-   <a class="pdfl" href="Vervotech-2026-Travel-Careers-Playbook.pdf">Or save the PDF file</a>
+   <a id="read" class="btn" href="read.html" onclick="vtTrack('vt_read_tap')">Read the playbook</a>
+   <a class="pdfl" href="Vervotech-2026-Travel-Careers-Playbook.pdf" onclick="vtTrack('vt_pdf_tap')">Or save the PDF file</a>
    <div class="lock" id="lk"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3z"/></svg>Unlocks after step 1</div>
   </div>
  </div>
 
- <p class="small">No LinkedIn account? <a href="https://www.linkedin.com/signup" target="_blank" rel="noopener">Create one free</a> in about 3 minutes, then follow Vervotech.</p>
+ <p class="small">No LinkedIn account? <a href="https://www.linkedin.com/signup" target="_blank" rel="noopener" onclick="vtTrack('vt_signup_tap')">Create one free</a> in about 3 minutes, then follow Vervotech.</p>
 
  <section class="peek">
   <h3>Inside the playbook</h3>
@@ -165,13 +172,14 @@ footer img{height:22px;opacity:.8}
   var KEY="vt_followed",unlocked=false;
   function store(){try{localStorage.setItem(KEY,"1")}catch(e){}}
   function unlock(){
-    if(unlocked)return;unlocked=true;
+    if(unlocked)return;unlocked=true;vtTrack("vt_unlocked");
     s1.classList.remove("active");s1.classList.add("done");$("n1").textContent="✓";f.classList.remove("pulse");
     s2.classList.remove("locked");s2.classList.add("active");$("lk").style.display="none";$("read").classList.add("pulse");
     rail.classList.add("open");db.textContent="Read the playbook";db.href="read.html";
   }
   try{if(localStorage.getItem(KEY)==="1")unlock()}catch(e){}
   f.addEventListener("click",function(e){
+    vtTrack("vt_follow_tap",{vt_where:"playbook_step1"});
     store();
     if(isAndroid||isIOS){
       e.preventDefault();

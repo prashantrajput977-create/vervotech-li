@@ -25,6 +25,13 @@
   @keyframes p{to{opacity:.25}}
   @media (prefers-reduced-motion:reduce){.dot{animation:none}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-84SQGBTRL5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());
+(function(){var q=new URLSearchParams(location.search);var ua=navigator.userAgent||"";
+window.VT={lp:location.pathname,content:q.get('utm_content')||'(none)',os:/Android/i.test(ua)?'android':(/iPhone|iPad|iPod/i.test(ua)?'ios':'other'),ig:/Instagram/i.test(ua)?'yes':'no'};
+gtag('config','G-84SQGBTRL5',{send_page_view:true,transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig});})();
+function vtTrack(n,p){try{var o=Object.assign({transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig},p||{});gtag('event',n,o)}catch(e){}}
+</script>
 </head>
 <body>
 <main>
@@ -49,15 +56,17 @@
   var app=isAndroid?ANDROID:(isIOS?IOS:WEB);
   var btn=document.getElementById("open"), st=document.getElementById("status");
   btn.href=app;
-  if(!isAndroid&&!isIOS){location.replace(WEB);return;}
+  if(!isAndroid&&!isIOS){vtTrack("vt_redirect_web");setTimeout(function(){location.replace(WEB)},400);return;}
   var left=false;
   document.addEventListener("visibilitychange",function(){if(document.hidden)left=true;});
   window.addEventListener("pagehide",function(){left=true;});
-  setTimeout(function(){location.href=app;},250);
+  vtTrack("vt_redirect_open_app",{vt_target:isAndroid?"android_app":"ios_app"});
+  setTimeout(function(){location.href=app;},450);
   setTimeout(function(){
-    if(!left){st.textContent="Didn't open? Tap the button above.";}
+    if(!left){st.textContent="Didn't open? Tap the button above.";vtTrack("vt_redirect_stuck");}
   },1800);
   btn.addEventListener("click",function(){
+    vtTrack("vt_follow_tap",{vt_where:"redirect_button"});
     setTimeout(function(){if(!document.hidden)location.href=WEB;},2200);
   });
 })();
