@@ -33,6 +33,7 @@ gtag('config','G-84SQGBTRL5',{send_page_view:true,transport_type:'beacon',vt_lp:
 function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','FollowTap');var o=Object.assign({transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig},p||{});gtag('event',n,o)}catch(e){}}
 </script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','468127345100858');fbq('track','PageView');</script>
+<script>function vtOpened(where){try{if(window.__vtOpened||!window.__vtTried)return;window.__vtOpened=1;if(window.fbq)fbq('trackCustom','LinkedInOpened',{where:where});vtTrack('vt_app_opened',{vt_where:where})}catch(e){}}</script>
 </head>
 <body>
 <main>
@@ -59,10 +60,10 @@ function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','
   btn.href=app;
   if(!isAndroid&&!isIOS){vtTrack("vt_redirect_web");setTimeout(function(){location.replace(WEB)},400);return;}
   var left=false;
-  document.addEventListener("visibilitychange",function(){if(document.hidden)left=true;});
-  window.addEventListener("pagehide",function(){left=true;});
+  document.addEventListener("visibilitychange",function(){if(document.hidden){left=true;vtOpened("redirect");}});
+  window.addEventListener("pagehide",function(){left=true;vtOpened("redirect");});
   vtTrack("vt_redirect_open_app",{vt_target:isAndroid?"android_app":"ios_app"});
-  setTimeout(function(){location.href=app;},450);
+  setTimeout(function(){window.__vtTried=1;location.href=app;},450);
   setTimeout(function(){
     if(!left){st.textContent="Didn't open? Tap the button above.";vtTrack("vt_redirect_stuck");}
   },1800);

@@ -97,6 +97,7 @@ gtag('config','G-84SQGBTRL5',{send_page_view:true,transport_type:'beacon',vt_lp:
 function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','FollowTap');var o=Object.assign({transport_type:'beacon',vt_lp:VT.lp,vt_content:VT.content,vt_os:VT.os,vt_ig:VT.ig},p||{});gtag('event',n,o)}catch(e){}}
 </script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','468127345100858');fbq('track','PageView');</script>
+<script>function vtOpened(where){try{if(window.__vtOpened||!window.__vtTried)return;window.__vtOpened=1;if(window.fbq)fbq('trackCustom','LinkedInOpened',{where:where});vtTrack('vt_app_opened',{vt_where:where})}catch(e){}}</script>
 </head>
 <body>
 <div class="bg"></div>
@@ -187,8 +188,8 @@ function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','
     if(isAndroid||isIOS){
       e.preventDefault();
       var app=isAndroid?ANDROID:IOS,left=false;
-      document.addEventListener("visibilitychange",function(){if(document.hidden)left=true});
-      location.href=app;
+      document.addEventListener("visibilitychange",function(){if(document.hidden){left=true;vtOpened("playbook");}});
+      window.__vtTried=1;location.href=app;
       setTimeout(function(){if(!left&&!document.hidden){location.href=WEB}},1800);
     }
     setTimeout(unlock,1200);
