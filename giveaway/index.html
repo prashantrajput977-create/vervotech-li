@@ -7,35 +7,50 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0B1F44">
 <link rel="icon" href="data:,">
+<link rel="preload" as="image" href="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--n:#0B1F44;--y:#FFC93C;--y2:#FFB800;--m:#B9C3D9;--line:rgba(255,255,255,.1)}
+:root{--n:#0B1F44;--n2:#122a5c;--y:#FFC93C;--y2:#FFB000;--m:#C7D0E3}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:radial-gradient(90% 50% at 85% -5%,rgba(255,201,60,.2),transparent 60%),radial-gradient(90% 60% at 0% 10%,rgba(40,90,190,.35),transparent 60%),var(--n);background-attachment:fixed;color:#fff;-webkit-font-smoothing:antialiased;min-height:100vh}
-main{max-width:440px;margin:0 auto;padding:18px 20px 110px}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-header img{height:28px}
-.chip{font-size:12px;font-weight:800;color:var(--n);background:var(--y);padding:6px 11px;border-radius:999px}
-.prize{position:relative;border-radius:20px;padding:20px;background:linear-gradient(135deg,#FFC93C,#FFB000);color:var(--n);overflow:hidden;box-shadow:0 18px 40px rgba(255,176,0,.25)}
-.prize:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:2px dashed rgba(11,31,68,.25)}
-.prize small{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.prize b{display:block;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 4px}
-.prize span{font-size:15px;font-weight:700}
-h1{font-size:24px;line-height:1.2;margin:18px 0 6px;font-weight:800;letter-spacing:-.01em}
-.sub{color:var(--m);font-size:14.5px;line-height:1.5;margin-bottom:16px}
-.steps{display:grid;gap:10px;margin-bottom:14px}
-.st{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:14px;padding:13px}
-.st i{font-style:normal;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--y);color:var(--n);font-weight:800;font-size:14px}
-.st b{display:block;font-size:15px}.st span{font-size:13px;color:var(--m)}
-.btn{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border-radius:999px;background:linear-gradient(180deg,var(--y),var(--y2));color:var(--n);font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 10px 26px rgba(255,184,0,.3);overflow:hidden}
+body{font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--n);color:#fff;-webkit-font-smoothing:antialiased}
+.hero{position:relative;min-height:78vh;min-height:78svh;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px 26px;background:url(hero.jpg) center 40%/cover;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,68,.55) 0%,rgba(11,31,68,0) 22%,rgba(11,31,68,.55) 42%,rgba(11,31,68,.9) 62%,#0B1F44 100%)}
+.hero>*{position:relative}
+.top{position:absolute;left:22px;right:22px;top:18px;display:flex;justify-content:space-between;align-items:center}
+.top img{height:28px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+.pill{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--n);background:var(--y);padding:7px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.win{font-size:20px;font-weight:800;color:var(--y);letter-spacing:.02em;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.amt{font-size:76px;line-height:.95;font-weight:800;letter-spacing:-.04em;margin:4px 0 2px;text-shadow:0 6px 30px rgba(0,0,0,.45)}
+.amt span{color:var(--y)}
+.what{font-size:24px;font-weight:800;line-height:1.15;margin-bottom:14px}
+.cd{display:flex;gap:8px;margin:2px 0 16px}
+.cd div{flex:1;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:8px 0;text-align:center}
+.cd b{display:block;font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.cd small{font-size:10.5px;color:var(--m);letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.btn{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;border-radius:999px;background:linear-gradient(180deg,var(--y),var(--y2));color:var(--n);font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 14px 30px rgba(255,176,0,.35);overflow:hidden;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.98)}
 .btn:after{content:"";position:absolute;inset:0;border-radius:inherit;animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,201,60,.55)}70%{box-shadow:0 0 0 14px rgba(255,201,60,0)}100%{box-shadow:0 0 0 0 rgba(255,201,60,0)}}
-.fine{font-size:12.5px;color:#8C9AB8;text-align:center;margin-top:12px;line-height:1.5}
+.btn i{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-100%);animation:shine 3s 1s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,201,60,.6)}70%{box-shadow:0 0 0 16px rgba(255,201,60,0)}100%{box-shadow:0 0 0 0 rgba(255,201,60,0)}}
+@keyframes shine{60%,100%{transform:translateX(100%)}}
+.note{font-size:12.5px;color:var(--m);text-align:center;margin-top:10px}
+section{max-width:480px;margin:0 auto;padding:24px 22px 0}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--y);font-weight:800;margin-bottom:12px}
+.steps{display:grid;gap:10px}
+.st{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px}
+.ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:18px}
+.ic.a{background:#0A66C2;color:#fff}.ic.b{background:var(--y);color:var(--n)}.ic.c{background:#3DDC84;color:var(--n)}
+.st b{display:block;font-size:16px;font-weight:800}
+.st span{font-size:13.5px;color:var(--m);line-height:1.4}
+.card{margin-top:18px;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:var(--n2);border-radius:16px;padding:12px;border:1px solid rgba(255,255,255,.08)}
+.card img{width:96px;height:96px;object-fit:cover;border-radius:12px}
+.card b{font-size:15px;display:block;margin-bottom:3px}.card span{font-size:13px;color:var(--m);line-height:1.4}
+.fine{font-size:12px;color:#8C9AB8;line-height:1.55;text-align:center;padding:22px 22px 120px;max-width:480px;margin:0 auto}
 .fine a{color:#fff}
-.dock{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,31,68,0),rgba(11,31,68,.95) 35%);transform:translateY(110%);transition:transform .3s}
-.dock.show{transform:none}.dock .btn{max-width:408px;margin:0 auto}
-@media (prefers-reduced-motion:reduce){.btn:after{animation:none}}
+.dock{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,31,68,0),rgba(11,31,68,.95) 35%);transform:translateY(110%);transition:transform .3s;z-index:9}
+.dock.show{transform:none}.dock .btn{max-width:448px;margin:0 auto}
+@media (prefers-reduced-motion:reduce){.btn:after,.btn i{animation:none}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-84SQGBTRL5"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());
@@ -49,32 +64,41 @@ function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','
 
 </head>
 <body>
-<main>
- <header><img src="logo-white.svg" alt="Vervotech" width="92" height="28"><span class="chip">Ends 11 Nov</span></header>
- <div class="prize"><small>Giveaway</small><b>₹10,000</b><span>travel voucher, for one lucky winner</span></div>
- <h1>Follow us on LinkedIn for a chance to win</h1>
- <p class="sub">It takes 20 seconds. Free to enter, open to residents of India aged 18+.</p>
- <div class="steps">
-  <div class="st"><i>1</i><div><b>Follow Vervotech on LinkedIn</b><span>Tap the button. The LinkedIn app opens on our page.</span></div></div>
-  <div class="st"><i>2</i><div><b>Comment on our featured giveaway post</b><span>It is at the top of our LinkedIn page. Tell us your dream travel destination for 2026.</span></div></div>
- </div>
- <a id="go" class="btn" href="https://www.linkedin.com/company/vervotech/">
-  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg>
-  Follow and enter
+<header class="hero">
+ <div class="top"><img src="logo-white.svg" alt="Vervotech" width="92" height="28"><span class="pill">Giveaway</span></div>
+ <div class="win">Win a</div>
+ <div class="amt"><span>₹10,000</span></div>
+ <div class="what">travel voucher for your next trip</div>
+ <div class="cd" aria-label="Time left to enter"><div><b id="d">--</b><small>days</small></div><div><b id="h">--</b><small>hours</small></div><div><b id="m">--</b><small>mins</small></div><div><b id="s">--</b><small>secs</small></div></div>
+ <a id="go" class="btn" href="https://www.linkedin.com/company/vervotech/"><i></i>
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg>
+  Enter on LinkedIn
  </a>
- <p class="fine">No LinkedIn account? <a href="https://www.linkedin.com/signup" target="_blank" rel="noopener" onclick="vtTrack('vt_signup_tap')">Create one free</a>, then come back.<br>Winner drawn 12 Nov 2026. <a href="rules.html">Read the full rules</a>. Not sponsored by LinkedIn, Instagram or Meta.</p>
-</main>
-<div class="dock" id="dock"><a class="btn" id="dockbtn" href="#">Follow and enter</a></div>
+ <div class="note">Free · 20 seconds · India residents 18+</div>
+</header>
+
+<section>
+ <h2>How to enter</h2>
+ <div class="steps">
+  <div class="st"><div class="ic a">1</div><div><b>Follow Vervotech</b><span>Tap "Enter on LinkedIn". The app opens on our page. Tap Follow.</span></div></div>
+  <div class="st"><div class="ic b">2</div><div><b>Comment on our featured post</b><span>It's at the top of our page. Any comment counts, even a quick congrats.</span></div></div>
+  <div class="st"><div class="ic c">✓</div><div><b>You're in the draw</b><span>One winner picked at random on 12 Nov 2026.</span></div></div>
+ </div>
+ <div class="card"><img src="envelope.jpg" alt="" loading="lazy"><div><b>One ₹10,000 travel voucher</b><span>Use it for flights, hotels or a holiday. Announced on our LinkedIn page.</span></div></div>
+</section>
+
+<p class="fine">No LinkedIn account? <a href="https://www.linkedin.com/signup" target="_blank" rel="noopener" onclick="vtTrack('vt_signup_tap')">Create one free</a>, then come back.<br>Closes 11 Nov 2026, 11:59 PM IST. <a href="rules.html">Full rules</a>. Not sponsored by LinkedIn, Instagram or Meta.</p>
+
+<div class="dock" id="dock"><a class="btn" id="dockbtn" href="#"><i></i>Enter on LinkedIn</a></div>
 <script>
 (function(){
-  // Set POST to the pinned giveaway post URL once it is live; until then we open the company page.
   var POST="";
   var WEB=POST||"https://www.linkedin.com/company/vervotech/";
   var IOS=POST?("linkedin://"+POST.replace(/^https?:\/\/(www\.)?linkedin\.com\//,"")):"linkedin://company/14448402";
   var ANDROID="intent://"+WEB.replace(/^https?:\/\//,"")+"#Intent;scheme=https;package=com.linkedin.android;S.browser_fallback_url="+encodeURIComponent(WEB)+";end";
   var ua=navigator.userAgent||"",isA=/Android/i.test(ua),isI=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
   var go=document.getElementById("go"),dock=document.getElementById("dock"),db=document.getElementById("dockbtn");
-  go.href=WEB;
+  go.href=WEB; db.href=WEB;
   function open(e){
     vtTrack("vt_follow_tap",{vt_where:"giveaway"});
     if(isA||isI){
@@ -86,6 +110,11 @@ function vtTrack(n,p){try{if(n==='vt_follow_tap'&&window.fbq)fbq('trackCustom','
   }
   go.addEventListener("click",open); db.addEventListener("click",open);
   new IntersectionObserver(function(es){es.forEach(function(x){dock.classList.toggle("show",!x.isIntersecting)})}).observe(go);
+  var end=new Date("2026-11-11T23:59:00+05:30").getTime();
+  function pad(n){return (n<10?"0":"")+n}
+  function tick(){var t=Math.max(0,end-Date.now());var d=Math.floor(t/864e5),h=Math.floor(t/36e5)%24,m=Math.floor(t/6e4)%60,s=Math.floor(t/1e3)%60;
+    document.getElementById("d").textContent=d;document.getElementById("h").textContent=pad(h);document.getElementById("m").textContent=pad(m);document.getElementById("s").textContent=pad(s);}
+  tick(); setInterval(tick,1000);
 })();
 </script>
 <script>function vtOpened(where){try{if(window.__vtOpened||!window.__vtTried)return;window.__vtOpened=1;if(window.fbq)fbq('trackCustom','LinkedInOpened',{where:where});vtTrack('vt_app_opened',{vt_where:where})}catch(e){}}</script>
